@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster | Programming Education Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .quiz-option:hover {
+            background-color: #f0f9ff;
+            transform: translateY(-2px);
+        }
+        .quiz-option.correct {
+            background-color: #d1fae5;
+            border-color: #10b981;
+        }
+        .quiz-option.incorrect {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <i class="fas fa-code text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-blue-600">CodeMaster</span>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Courses</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Resources</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Community</a>
+                    <a href="#contact-section" class="text-gray-700 hover:text-blue-600 font-medium">Contact Us</a>
+                </nav>
+
+                <!-- Search Bar -->
+                <div class="hidden lg:flex items-center relative w-64 mx-4">
+                    <input type="text" placeholder="Search courses..."
+                           class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <button class="absolute right-3 text-gray-500 hover:text-blue-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <!-- User Account & CTA -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex space-x-4">
+                        <button class="text-gray-700 hover:text-blue-600">
+                            <i class="fas fa-user-circle text-xl"></i>
+                        </button>
+                        <div class="relative dropdown">
+                            <button class="text-gray-700 hover:text-blue-600">
+                                <i class="fas fa-cog text-xl"></i>
+                            </button>
+                            <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden">
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Settings</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+                        Start Learning
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quiz Section -->
+    <section class="container mx-auto px-4 py-12 max-w-4xl">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden p-8">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl font-bold text-gray-800 mb-3">Test Your Programming Skills!</h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Challenge yourself with our programming quiz designed to assess your knowledge and skills.
+                    Answer the questions below to see how you stack up!
+                </p>
+            </div>
+
+            <form id="quizForm" class="space-y-8">
+                <!-- Question 1 -->
+                <div class="quiz-question bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">1. What does HTML stand for?</h3>
+                    <div class="space-y-3">
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q1" value="A" class="mr-2">
+                            Hypertext Markup Language
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q1" value="B" class="mr-2">
+                            High-Level Text Markup Language
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q1" value="C" class="mr-2">
+                            Hyperlink and Text Markup Language
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q1" value="D" class="mr-2">
+                            None of the above
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="quiz-question bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">2. Which of the following is a JavaScript framework?</h3>
+                    <div class="space-y-3">
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q2" value="A" class="mr-2">
+                            Django
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q2" value="B" class="mr-2">
+                            React
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q2" value="C" class="mr-2">
+                            Ruby on Rails
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q2" value="D" class="mr-2">
+                            Laravel
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-question bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">3. What is the purpose of CSS?</h3>
+                    <div class="space-y-3">
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q3" value="A" class="mr-2">
+                            To structure web content
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q3" value="B" class="mr-2">
+                            To style web pages
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q3" value="C" class="mr-2">
+                            To create server-side applications
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q3" value="D" class="mr-2">
+                            To manage databases
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="quiz-question bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">4. Which symbol is used for comments in Python?</h3>
+                    <div class="space-y-3">
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q4" value="A" class="mr-2">
+                            //
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q4" value="B" class="mr-2">
+                            #
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q4" value="C" class="mr-2">
+                            /*
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q4" value="D" class="mr-2">
+                            **
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="quiz-question bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">5. What is the output of the following code: console.log(2 + '2');?</h3>
+                    <div class="space-y-3">
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q5" value="A" class="mr-2">
+                            4
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q5" value="B" class="mr-2">
+                            22
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q5" value="C" class="mr-2">
+                            "22"
+                        </label>
+                        <label class="quiz-option block p-4 border border-gray-300 rounded-lg cursor-pointer transition duration-200">
+                            <input type="radio" name="q5" value="D" class="mr-2">
+                            Error
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <button type="button" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                        Submit Answers
+                    </button>
+                </div>
+            </form>
+
+            <!-- Results Section (initially hidden) -->
+            <div id="results" class="hidden mt-10 p-6 bg-blue-50 rounded-lg border border-blue-200">
+                <h3 class="text-xl font-bold text-blue-800 mb-4">Your Quiz Results</h3>
+                <div class="flex items-center mb-4">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                        <span id="scoreDisplay" class="text-2xl font-bold text-blue-600">0</span>
+                    </div>
+                    <div>
+                        <p class="text-gray-700">You scored <span id="correctCount" class="font-bold">0</span> out of <span class="font-bold">5</span> questions correctly.</p>
+                        <p id="feedback" class="text-sm text-gray-600 mt-1"></p>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <p class="font-medium text-gray-700">Question Breakdown:</p>
+                    <ul id="questionBreakdown" class="list-disc pl-5 text-gray-600 space-y-1">
+                        <!-- Will be filled by JavaScript -->
+                    </ul>
+                </div>
+                <button id="retryBtn" class="mt-6 px-4 py-2 bg-white border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-100 transition duration-200">
+                    Try Again
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-section" class="container mx-auto px-4 py-12 max-w-4xl">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden p-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">Contact Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Have questions or feedback? Feel free to reach out to us using the form below.
+                </p>
+            </div>
+
+            <form id="contactForm" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" required
+                           class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" required
+                           class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                    <input type="text" id="subject" name="subject" required
+                           class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea id="message" name="message" rows="4" required
+                              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+
+                <div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+
+            <div id="formFeedback" class="mt-6 text-center hidden">
+                <p id="feedbackMessage" class="text-green-600 font-medium"></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizForm = document.getElementById('quizForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const resultsSection = document.getElementById('results');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const correctCount = document.getElementById('correctCount');
+            const feedback = document.getElementById('feedback');
+            const questionBreakdown = document.getElementById('questionBreakdown');
+            const retryBtn = document.getElementById('retryBtn');
+
+            // Correct answers
+            const correctAnswers = {
+                q1: 'A',
+                q2: 'B',
+                q3: 'B',
+                q4: 'B',
+                q5: 'C'
+            };
+
+            // Question explanations
+            const explanations = {
+                q1: "HTML stands for Hypertext Markup Language. It's the standard markup language for creating web pages.",
+                q2: "React is a JavaScript framework/library for building user interfaces. Django (Python), Ruby on Rails (Ruby), and Laravel (PHP) are backend frameworks.",
+                q3: "CSS (Cascading Style Sheets) is used to style and layout web pages, while HTML structures the content.",
+                q4: "Python uses the # symbol for single-line comments. // is used in JavaScript and C-style languages.",
+                q5: "In JavaScript, the + operator performs string concatenation when one operand is a string. The number 2 is coerced to a string, resulting in '22'."
+            };
+
+            submitBtn.addEventListener('click', function() {
+                let score = 0;
+                const userAnswers = {};
+                const breakdownItems = [];
+
+                // Check each question
+                for (let i = 1; i <= 5; i++) {
+                    const questionName = `q${i}`;
+                    const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+
+                    if (selectedOption) {
+                        userAnswers[questionName] = selectedOption.value;
+
+                        // Mark correct/incorrect answers
+                        const allOptions = document.querySelectorAll(`input[name="${questionName}"]`);
+                        allOptions.forEach(option => {
+                            const parentLabel = option.parentElement;
+                            parentLabel.classList.remove('correct', 'incorrect');
+
+                            if (option.value === correctAnswers[questionName]) {
+                                parentLabel.classList.add('correct');
+                            } else if (option.checked && option.value !== correctAnswers[questionName]) {
+                                parentLabel.classList.add('incorrect');
+                            }
+                        });
+
+                        // Calculate score
+                        if (selectedOption.value === correctAnswers[questionName]) {
+                            score++;
+                        }
+
+                        // Add to breakdown
+                        const isCorrect = selectedOption.value === correctAnswers[questionName];
+                        breakdownItems.push(`
+                            <li class="${isCorrect ? 'text-green-600' : 'text-red-600'}">
+                                Question ${i}: ${isCorrect ? 'Correct' : 'Incorrect'} - ${explanations[questionName]}
+                            </li>
+                        `);
+                    } else {
+                        breakdownItems.push(`
+                            <li class="text-yellow-600">
+                                Question ${i}: Not answered - ${explanations[questionName]}
+                            </li>
+                        `);
+                    }
+                }
+
+                // Display results
+                scoreDisplay.textContent = score;
+                correctCount.textContent = score;
+
+                // Provide feedback based on score
+                if (score === 5) {
+                    feedback.textContent = "Excellent! You're a programming pro!";
+                } else if (score >= 3) {
+                    feedback.textContent = "Good job! You have solid programming knowledge.";
+                } else {
+                    feedback.textContent = "Keep practicing! Programming takes time to master.";
+                }
+
+                // Add breakdown items
+                questionBreakdown.innerHTML = breakdownItems.join('');
+
+                // Show results section
+                resultsSection.classList.remove('hidden');
+
+                // Scroll to results
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            retryBtn.addEventListener('click', function() {
+                // Reset form
+                quizForm.reset();
+
+                // Remove all highlighting
+                document.querySelectorAll('.quiz-option').forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                });
+
+                // Hide results
+                resultsSection.classList.add('hidden');
+
+                // Scroll to top of quiz
+                quizForm.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Contact Form
+            const contactForm = document.getElementById('contactForm');
+            const formFeedback = document.getElementById('formFeedback');
+            const feedbackMessage = document.getElementById('feedbackMessage');
+
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Здесь можно добавить логику для отправки данных на сервер
+                // Например, с использованием fetch API
+
+                // Покажем сообщение об успешной отправке
+                feedbackMessage.textContent = "Your message has been sent successfully!";
+                formFeedback.classList.remove('hidden');
+
+                // Сбросим форму
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
